@@ -146,8 +146,7 @@ trait Creator
             return clone $date;
         }
 
-        $instance = parent::createFromFormat('U.u', $date->format('U.u'))
-            ->setTimezone($date->getTimezone());
+        $instance = new static($date, $date->getTimezone());
 
         if ($date instanceof CarbonInterface) {
             $settings = $date->getSettings();
